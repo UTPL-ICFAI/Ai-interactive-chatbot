@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ushnik Technologies | AI Assistant</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="chat-page">
+        <div class="chat-container">
+
+            <!-- Header -->
+            <header class="chat-header-bar">
+                <div class="header-left">
+                    <div class="company-logo-wrapper">
+                        <img src="https://ushnik.in/ushnik-logo.png" alt="Logo">
+                    </div>
+                    <div class="header-text">
+                        <h1>Ushnik Technologies</h1>
+                        <div class="status">
+                            <span class="status-indicator"></span>
+                            Online AI Assistant
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button class="action-chip" onclick="location.reload()">Reset Chat</button>
+                </div>
+            </header>
+
+            <!-- Messages Area -->
+            <div class="messages-area" id="messages-area">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Input Area -->
+            <footer class="input-section">
+                <div class="quick-actions-pro" id="quick-actions">
+                    <button class="action-chip" onclick="sendQuick('Explore Courses')">🎓 Courses</button>
+                    <button class="action-chip" onclick="sendQuick('Fee Structure')">💰 Fees</button>
+                    <button class="action-chip" onclick="sendQuick('Active Offers')">🔥 Offers</button>
+                    <button class="action-chip" onclick="sendQuick('Contact Us')">📞 Contact</button>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="msg-input" placeholder="Type your message here..."
+                        onkeydown="if(event.key==='Enter')sendMsg()">
+                    <button class="send-btn-pro" onclick="sendMsg()" id="send-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </div>
+            </footer>
+
+            <!-- Lead Form Overlay (Hidden by Default) -->
+            <div class="lead-modal-overlay" id="inline-lead-form" style="display: none;">
+                <div class="lead-card-pro">
+                    <div class="lead-header">
+                        <h2>Personalized Support</h2>
+                        <p>Share your interest to unlock <strong>50% OFF</strong></p>
+                    </div>
+                    <div class="lead-body">
+                        <div class="input-group-pro">
+                            <label class="input-label">Full Name</label>
+                            <input type="text" id="lead-name" class="input-field-pro" placeholder="e.g. John Doe">
+                        </div>
+                        <div class="input-group-pro">
+                            <label class="input-label">Email Address</label>
+                            <input type="email" id="lead-email" class="input-field-pro" placeholder="john@example.com">
+                        </div>
+                        <div class="input-group-pro">
+                            <label class="input-label">WhatsApp Number</label>
+                            <input type="tel" id="lead-phone" class="input-field-pro" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                        <div class="input-group-pro">
+                            <label class="input-label">Target Course</label>
+                            <select id="lead-course" class="input-field-pro">
+                                <option value="">Select a program</option>
+                                <option value="AI & ML">AI & Machine Learning</option>
+                                <option value="Cybersecurity">Cybersecurity</option>
+                                <option value="Web Dev">Full Stack Web Dev</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <button class="submit-btn-pro" id="submit-lead-btn" onclick="submitLead()">Claim 50%
+                            Discount</button>
+                        <button class="action-chip" style="width: 100%; border: none;" onclick="skipLeadForm()">Continue
+                            Chatting</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Marketing Popup -->
+    <div class="popup-overlay-pro" id="popup-overlay" style="display:none;">
+        <div class="popup-container-pro">
+            <button class="popup-close-btn" onclick="closePopup()">✕</button>
+            <div style="font-size: 3rem; margin-bottom: 20px;">🎊</div>
+            <h2 id="popup-title" style="font-size: 1.8rem; margin-bottom: 15px;">Congratulations!</h2>
+            <p id="popup-message" style="color: #444; margin-bottom: 25px;">Your discount has been reserved.</p>
+            <div
+                style="background: #fff8e1; border: 2px dashed #ff8c00; padding: 20px; border-radius: 12px; margin-bottom: 25px;">
+                <span id="popup-discount" style="font-size: 2.5rem; font-weight: 900; color: #ff8c00;">50% OFF</span>
+            </div>
+            <button class="submit-btn-pro" style="width: 100%; background: #000;" onclick="closePopup()">Awesome,
+                Thanks!</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
